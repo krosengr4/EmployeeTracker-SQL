@@ -1,3 +1,5 @@
+-- ! schmea.sql works with the database. Creates employee, job, and departments tables
+
 DROP DATABASE IF EXISTS example_db;
 CREATE DATABASE example_db;
 
