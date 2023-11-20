@@ -121,11 +121,56 @@ const startPropmt = () => {
     // Function to add a department
     const addDepartment = async () => {
         console.log('Add a Department');
+
+        inquirer.prompt([
+            {
+                name: 'deptName',
+                type: 'input',
+                message: "What is the New Department's Name?",
+            }
+        ])
+        .then(response => {
+            connection.query(
+                `INSERT INTO department (department_name) VALUES (?)`, [response.deptName],
+                function (err, res) {
+                    if (err) throw err;
+                    console.log('Department was Added!');
+                    startPropmt();
+                }
+            )
+        })
     };
     
     
     // Function to add a job
     const addJob = async () => {
+        inquirer.prompt ([
+            {
+                name: 'jobTitle',
+                type: 'input',
+                message: 'What is the Job Title?',
+            },
+            {
+                name: 'salary',
+                type: 'input',
+                message: 'What is the Salary of this Job',
+            },
+            {
+                name: 'deptId',
+                type:  'input',
+                Message: 'Please Enter the Department ID',
+            },
+        ])
+        .then (response => {
+            connection.query(`INSERT INTO job (title, salary, department_id) VALUES (?, ?, ?)`,
+            [response.jobTitle, response.salary, response.deptId], 
+            function (err, res) {
+                if (err) throw (err);
+                console.log('Job was Added!');
+                startPropmt();
+            })
+        });
+
         console.log('Add a Job');
     };
 
