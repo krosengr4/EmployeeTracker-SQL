@@ -22,12 +22,17 @@
 A CLI application that allows you to keep, view and update a database of your employees. 
 
 ## Installation
-Clone the repository code
+1) Clone the repository code
+2) In integrated terminal type "npm install" to install node
+3) In Sql, copy the schema.sql file path and type "source " and paste
+- For any questions, refer to the Walk Through Video Below
+
 
 ## Usage
 Run node server.js and follow the prompt.
+- For any questions, refer to the Walk Through Video Below
 
-## Images
+## Walk Through Video
 ![image]()
 
 ## Contributing
