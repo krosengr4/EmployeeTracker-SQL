@@ -110,6 +110,32 @@ const startPropmt = () => {
     //Function to update an employee
     const updateEmployee = async () => {
         console.log('Update Employee Information');
+
+        inquirer.prompt([
+            {
+                name: 'empId',
+                type: 'input',
+                message: 'What is the Employee id number?',
+            },
+            {
+                name: 'jobId',
+                type: 'input',
+                message: 'Enter new/existing job_id',
+            },
+            {
+                name: 'arrestsMade',
+                type: 'input',
+                message: 'Enter new/existing arrests_made',
+            },
+        ])
+        .then(response => {
+            connection.query(`UPDATE employee SET job_id=?, arrests_made=? WHERE id=?`, [response.jobId, response.arrestsMade, response.empId],
+            function (err, res) {
+                if (err) throw err;
+                console.log("Employee's data successfully changed!");
+                startPropmt();
+            })
+        })
     };
 
     // Function to add an employee
