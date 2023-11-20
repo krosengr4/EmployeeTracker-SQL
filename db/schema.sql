@@ -1,3 +1,4 @@
+-- Copy and paste in mysql
 DROP DATABASE IF EXISTS employee_db;
 CREATE DATABASE employee_db;
 
