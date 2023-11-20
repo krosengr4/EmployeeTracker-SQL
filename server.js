@@ -72,7 +72,6 @@ const startPropmt = () => {
     });
 };
 
-    
     // Function to view all employees
     const viewEmployees = () => {
         console.log('View All Employees');
@@ -176,8 +175,6 @@ const startPropmt = () => {
         })
     };
     
-    
-    
     // Function to add a department
     const addDepartment = async () => {
         //// console.log('Add a Department');
@@ -232,6 +229,7 @@ const startPropmt = () => {
         
     };
  
+
     //? Function below is a start to delete a department if we get there.
     // const delDepartment = () => {
     //     inquirer.prompt([
