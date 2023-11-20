@@ -74,7 +74,7 @@ const startPropmt = () => {
     
     // Function to view all employees
     const viewEmployees = () => {
-        console.log('You chose to View All Employees');
+        console.log('View All Employees');
         
         connection.query('SELECT * FROM employee;',
         function (err, res) {
@@ -86,35 +86,47 @@ const startPropmt = () => {
     
     // Function to view all departments
     const viewDepartments = async () => {
-        console.log('You chose to View All Departments');
+        console.log('View All Departments');
+
+        connection.query('SELECT * FROM department;', function (err, res) {
+            if (err) throw err;
+            console.table(res);
+            startPropmt();
+        })
     };
 
     // Function to view all jobs
     const viewJobs = async () => {
-        console.log('You chose to View All Jobs');
+        console.log('View All Jobs');
+
+        connection.query('SELECT * FROM job;', function (err, res) {
+            if (err) throw err;
+            console.table(res);
+            startPropmt();
+        })
     };
     
     //Function to update an employee
     const updateEmployee = async () => {
-        console.log('You chose to Update Employee Information');
+        console.log('Update Employee Information');
     };
 
     // Function to add an employee
     const addEmployee = async () => {
-        console.log('You chose to Add an Employee');
+        console.log('Add an Employee');
     };
     
     
     
     // Function to add a department
     const addDepartment = async () => {
-        console.log('You chose to Add a Department');
+        console.log('Add a Department');
     };
     
     
     // Function to add a job
     const addJob = async () => {
-        console.log('You chose to Add a Job');
+        console.log('Add a Job');
     };
 
 
