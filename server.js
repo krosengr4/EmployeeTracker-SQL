@@ -1,4 +1,5 @@
 // Import dependencies
+const { response } = require('express');
 const inquirer = require('inquirer');
 const mySql = require('mysql');
 // const app = express();
@@ -10,7 +11,7 @@ const connection = mySql.createConnection({
     database: 'employee_db',
     user: 'root',
     //TODO: Add "MySQL" password below
-    password: '611854kr',
+    password: '611854kr', //! <--- Add your MySQL password here
 });
 
 // Array of choices the user can make
@@ -114,14 +115,46 @@ const startPropmt = () => {
     // Function to add an employee
     const addEmployee = async () => {
         console.log('Add an Employee');
+
+        inquirer.prompt ([
+            {
+                name: 'firstName',
+                type: 'input',
+                message: "What is the New Employee's First Name?",
+            },
+            {
+                name: 'lastName',
+                type: 'input',
+                message: "What is the New Employee's Last Name?",
+            },
+            {
+                name: 'empJobId',
+                type: 'input',
+                message: "What is the New Employee's job_id?",
+            },
+            {
+                name: 'arrestsMade',
+                type: 'input',
+                message: "How many arrests has this person made in their life?",
+            }
+        ])
+        .then(response => {
+            connection.query(
+                `INSERT INTO employee (first_name, last_name, job_id, arrests_made) VALUES (?, ?, ?, ?)`, [response.firstName, response.lastName, response.empJobId, response.arrestsMade],
+                function (err, res) {
+                    if (err) throw err;
+                    console.log('Employee has been Added!');
+                    startPropmt();
+                }
+            )
+        })
     };
     
     
     
     // Function to add a department
     const addDepartment = async () => {
-        console.log('Add a Department');
-
+        //// console.log('Add a Department');
         inquirer.prompt([
             {
                 name: 'deptName',
@@ -138,12 +171,12 @@ const startPropmt = () => {
                     startPropmt();
                 }
             )
-        })
+        });
     };
-    
-    
+
     // Function to add a job
     const addJob = async () => {
+        //// console.log('Add a Job');
         inquirer.prompt ([
             {
                 name: 'jobTitle',
@@ -170,22 +203,33 @@ const startPropmt = () => {
                 startPropmt();
             })
         });
-
-        console.log('Add a Job');
+        
     };
 
-
-
+    
+    //? Function below is a start to delete a department if we get there.
+    // const delDepartment = () => {
+    //     inquirer.prompt([
+    //         {
+    //             name: '',
+    //             type: 'input',
+    //             message: 'Which Department would you like to remove?',
+    //         }
+    //     ])
+    // } 
+    
+    
+    
     //         // switch function to handle the user choice, calls appropriate function
     //     try {
-    //         let response = await inquirer.prompt({
-    //             name: 'action', 
-    //             type: 'list',
-    //             message: 'Hello! What would you like to do?',
-    //             choices: userChoices
-    //         }); 
-    //         switch (response.action) {
+        //         let response = await inquirer.prompt({
+            //             name: 'action', 
+            //             type: 'list',
+            //             message: 'Hello! What would you like to do?',
+            //             choices: userChoices
+            //         }); 
+            //         switch (response.action) {
                 
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
+                //     } catch (error) {
+                    //         console.log(error);
+                    //     }
