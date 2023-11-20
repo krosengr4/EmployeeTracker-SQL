@@ -19,21 +19,22 @@
 
 
 ## Description
-A CLI application that allows you to keep, view and update a database of your employees. 
+A CLI application that allows you to keep, view and update a database of your employees, jobs, and departments.
 
 ## Installation
 1) Clone the repository code
 2) In integrated terminal type "npm install" to install node
-3) In Sql, copy the schema.sql file path and type "source " and paste
+3) In MySql, copy and paste schema.sql and seeds.sql
 - For any questions, refer to the Walk Through Video Below
 
 
 ## Usage
+Right click server.js file and click "Open in Integrated Terminal"
 Run node server.js and follow the prompt.
 - For any questions, refer to the Walk Through Video Below
 
 ## Walk Through Video
-![image]()
+[Walk Through Video](https://drive.google.com/file/d/1IblZwMnqGSa2f73Vezum2jpeIfJTrHSA/view)
 
 ## Contributing
 
