@@ -26,10 +26,10 @@ const userChoices = [
     'Exit'
 ];
 
-// Connect to the database and call function startPrompt()
+// Connect to the database. Give user nice message and call function startPrompt() if connects. 
 connection.connect(error => {
     if (error) throw error;
-    console.log("You are connected to the employees_db database!");
+    console.log("-------------------------------------------------\n \n------------ BROOKLYN 99 EMPLOYEE DB ------------\n \n -------------------------------------------------");
     startPropmt();
 });
 
