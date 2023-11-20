@@ -107,7 +107,7 @@ const startPropmt = () => {
         })
     };
     
-    //Function to update an employee
+    //Function to update an employee's job and arrests made
     const updateEmployee = async () => {
         console.log('Update Employee Information');
 
@@ -138,7 +138,7 @@ const startPropmt = () => {
         })
     };
 
-    // Function to add an employee
+    // Function to add an employee and info
     const addEmployee = async () => {
         console.log('Add an Employee');
 
@@ -200,7 +200,7 @@ const startPropmt = () => {
         });
     };
 
-    // Function to add a job
+    // Function to add a job + add job to a department
     const addJob = async () => {
         //// console.log('Add a Job');
         inquirer.prompt ([
@@ -231,8 +231,7 @@ const startPropmt = () => {
         });
         
     };
-
-    
+ 
     //? Function below is a start to delete a department if we get there.
     // const delDepartment = () => {
     //     inquirer.prompt([
@@ -243,19 +242,3 @@ const startPropmt = () => {
     //         }
     //     ])
     // } 
-    
-    
-    
-    //         // switch function to handle the user choice, calls appropriate function
-    //     try {
-        //         let response = await inquirer.prompt({
-            //             name: 'action', 
-            //             type: 'list',
-            //             message: 'Hello! What would you like to do?',
-            //             choices: userChoices
-            //         }); 
-            //         switch (response.action) {
-                
-                //     } catch (error) {
-                    //         console.log(error);
-                    //     }
