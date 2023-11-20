@@ -74,7 +74,14 @@ const startPropmt = () => {
     
     // Function to view all employees
     const viewEmployees = () => {
-
+        console.log('You chose to View All Employees');
+        
+        connection.query('SELECT * FROM employee;',
+        function (err, res) {
+            if (err) throw err;
+            console.table(res);
+            startPropmt();
+        })
     };
     
     // Function to view all departments
